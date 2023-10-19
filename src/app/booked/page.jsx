@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 // import { useObserver } from "mobx-react-lite";
 import Header from "@/components/Header";
 
@@ -13,13 +14,17 @@ const BookedData = () => {
     setItems(CartStore.bookedItems);
     // console.log(items.passengerNames)
   }, []);
+  console.log(items)
 
   return (
     <>
       <Header />
       <div className="min-h-screen w-full">
-        <h1 className="text-center py-5 font-bold text-2xl">Booked Products</h1>
+        {
+          items.length > 0 ? <h1 className="text-center py-5 font-bold text-2xl">Booked Products</h1> : <p className="text-slate-700 font-extrabold text-center py-4 text-3xl">Seems Not yet Booked <Link className="text-slate-400" href="/cart">Click Here</Link></p>
+        }
         <div className="flex justify-center gap-4 flex-wrap">
+
           {items &&
             items.map((item, i) => {
               return (
