@@ -52,8 +52,8 @@ export default function Cart() {
 			passengerNames,
 		};
 		CartStore.addToBooked(product);
-		// CartStore.clearCart();
-		// router.push('/')
+		CartStore.clearCart();
+		router.push('/')
 	};
 
 	const handleChange = (value) => {
