@@ -13,25 +13,25 @@ const Header = () => {
   }, [itemsLength]);
 
   return (
-    <div className="header w-full flex gap-4 justify-between items-center text-xl shadow-xl bg-cyan-900 h-12 rounded-md ">
+    <div className="header w-full flex gap-4 justify-between items-center text-xl shadow-xl bg-slate-400 h-12 rounded-md ">
       <div className="logo mx-6 flex mt-1">
         <Link href="/" className="hover:text-yellow-200 duration-100 ">
-          <img src="/iFerry.png" alt="logo" className="h-10" />
+          <h1 className="text-xl font-bold text-slate-700">Insta -Dukan</h1>
         </Link>
       </div>
       <div className="mx-6 flex gap-5">
-        <Link href="/" className="hover:text-yellow-200 duration-100">
-          <span>Home</span>
+        <Link href="/" className="text-xl text-stone-900 hover:font-bold text-slate-950 duration-100">
+          <span className="">Home</span>
         </Link>
 
-        <Link href="/cart" className="hover:text-yellow-200 duration-100">
+        <Link href="/cart" className="text-xl text-stone-900 hover:font-bold text-slate-950 duration-100">
           <span className="mr-1">Cart</span>
           {itemsLength > 0 && (
             <Badge count={itemsLength} style={{ backgroundColor: "#52c41a" }} />
           )}
         </Link>
         {/* {CartStore.bookedItemsLength > 0 && */}
-        <Link href="/booked" className="hover:text-yellow-200 duration-100">
+        <Link href="/booked" className="text-xl text-stone-900 hover:font-bold text-slate-950 duration-100">
           <span>Bookings</span>
         </Link>
       </div>

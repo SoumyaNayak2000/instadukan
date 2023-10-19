@@ -13,8 +13,8 @@ const MainContent = ({ products }) => {
     }
     return (
         <div className='flex-col flex-wrap justify-between items-center gap-4 text-center h-screen'>
-            <h1 className='text-2xl m-10'>Ferry Services</h1>
-            <div className='flex flex-col flex-wrap justify-between items-center gap-4 md:flex-row text-center'>
+            <h1 className='text-2xl font-bold m-10'>Ferry Services</h1>
+            <div className='flex flex-col flex-wrap justify-between items-center gap-4  md:flex-row text-center'>
                 {
                     products &&
                     products.map((product) => (
@@ -34,7 +34,6 @@ const MainContent = ({ products }) => {
                                     />
                                 }
                             >
-                                {/* <h5 className='text-lg'>{product.name}</h5> */}
                                 <Meta title={product.name} />
                                 <p>Price: ₹{product.price}</p>
                                 <Button onClick={() => addToCart(product)} className='border border-blue-500 my-2 hover:bg-blue-100'>
