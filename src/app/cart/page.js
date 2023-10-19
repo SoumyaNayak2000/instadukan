@@ -101,7 +101,7 @@ export default function Cart() {
 					{CartStore.items.length > 0 && (
 						<Button
 							onClick={showModal}
-							className='w-[50%] block mx-auto text-white mb-[30vh]'
+							className='w-[50%] block mx-auto text-slate-800 mb-[30vh]'
 						>
 							Checkout
 						</Button>
