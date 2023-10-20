@@ -17,6 +17,7 @@ export default function Cart() {
 	const [tempArr, setTempArr] = useState([]);
 	const [email, setEmail] = useState("");
 	const [date, setDate] = useState("");
+	const [age, setAge] = useState("");
 	const [passengerNames, setPassengerNames] = useState([]);
 
 	const router = useRouter();
@@ -50,18 +51,17 @@ export default function Cart() {
 			date,
 			email,
 			passengerNames,
+			age,
 		};
 		CartStore.addToBooked(product);
 		CartStore.clearCart();
-		router.push('/')
+		router.push("/");
 	};
 
 	const handleChange = (value) => {
-		// console.log(Number(value));
 		setNoOfPassenger(Number(value));
 	};
 	const dateChange = (date, dateString) => {
-		// console.log(dateString);
 		setDate(dateString);
 	};
 
@@ -74,14 +74,16 @@ export default function Cart() {
 			{/* Cart Section */}
 			{CartStore.items.length > 0 && (
 				<div className='cart block'>
-					<h1 className='text-2xl m-8 w-full'>Your Cart</h1>
+					<h1 className='text-2xl m-8 w-full'>Cart</h1>
 				</div>
 			)}
 			<div className='cart w-auto flex flex-wrap items-center justify-center gap-10'>
 				{CartStore.items.length < 1 ? (
 					<div className='flex m-12 flex-col gap-20 justify-center items-center'>
-						<h1 className='text-2xl'>No data - Your cart is Empty !</h1>
-						<Link href={"/"}>
+						<h1 className='flex items-center justify-center text-rose-700 font-extrabold text-center py-4 text-3xl'>
+							Cart is Empty.
+						</h1>
+						<Link text-slate-400 href={"/"}>
 							<Button className='text-white mb-[61.5vh]'>Add now</Button>
 						</Link>
 					</div>
@@ -117,14 +119,13 @@ export default function Cart() {
 					okButtonProps={{
 						style: {
 							color: "white",
-							backgroundColor: "blueviolet",
+							backgroundColor: "blue",
 						},
 					}}
 				>
 					<Form name='passenger_info' onFinish={onFinish}>
-						<Form.Item name='noOfPassenger' label='Number of Passengers' required>
+						<Form.Item name='noOfPassenger' label='Number of Passengers'>
 							<Select
-								status='warning'
 								showSearch
 								initialvalues={1}
 								style={{
@@ -144,34 +145,28 @@ export default function Cart() {
 									{ value: "1", label: "1" },
 									{ value: "2", label: "2" },
 									{ value: "3", label: "3" },
-									{ value: "4", label: "4" },
-									{ value: "5", label: "5" },
-									{ value: "6", label: "6" },
-									{ value: "7", label: "Max (7)" },
 								]}
 								value={noOfPassenger}
 								onChange={handleChange}
 							/>
 						</Form.Item>
 
-						<Form.Item
-							name='date'
-							label='Date   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'
-							required
-						>
-							<DatePicker status='warning' onChange={dateChange} className='w-full' />
+						<Form.Item name='date' label='Date   &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;'>
+							<DatePicker onChange={dateChange} className='w-full' />
 						</Form.Item>
 
-						<Form.Item
-							name='email'
-							label='Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
-							required
-						>
+						<Form.Item name='email' label='Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'>
 							<Input
 								type='email'
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
-								status='warning'
+							/>
+						</Form.Item>
+						<Form.Item name='age' label='Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'>
+							<Input
+								type='number'
+								value={age}
+								onChange={(e) => setAge(e.target.value)}
 							/>
 						</Form.Item>
 

@@ -4,9 +4,8 @@ import { useObserver } from "mobx-react-lite";
 
 const CustomFormItem = ({ item, setPassengerNames, passengerNames }) => {
 	return (
-		<Form.Item name={`${item}`} label={`P${item + 1} Name`} key={item} required>
+		<Form.Item name={`${item}`} label={`P${item + 1} Name`} key={item}>
 			<Input
-				status='warning'
 				type='text'
 				value={passengerNames[item] || ""}
 				onChange={(e) => {
