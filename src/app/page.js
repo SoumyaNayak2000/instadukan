@@ -13,10 +13,10 @@ export default function Home() {
 		async function fetchProducts() {
 			setIsLoading(true);
 			try {
-				
 
-				const res = await fetch("https://soumyanayak2000.github.io/ferry-products/products.json");
-				// const res = await fetch("https://ferry-api.onrender.com/products");
+
+				// const res = await fetch("https://soumyanayak2000.github.io/ferry-products/products.json");
+				const res = await fetch("https://ferry-api.onrender.com/products");
 				// const res = await fetch("https://raw.githubusercontent.com/SoumyaNayak2000/ferry-products/master/products.json");
 				const data = await res.json();
 				setProducts(data);
